@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume Builder</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <div class="form-container">
+            <h2>Resume Builder</h2>
+            <form id="resume-form">
+                <h3>Personal Information</h3>
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="phone" placeholder="Phone Number" required>
+                <input type="text" id="website" placeholder="Website">
+                
+                <!-- Image Upload Field -->
+                <h3>Profile Picture</h3>
+                <input type="file" id="profile-pic" accept="image/*">
+
+                <textarea id="education" placeholder="Education details..."></textarea>
+
+                <h3>Work Experience</h3>
+                <textarea id="experience" placeholder="Work experience details..."></textarea>
+
+                <h3>Skills</h3>
+                <input type="text" id="skills" placeholder="Separate skills with commas">
+
+                <button type="submit">Generate Resume</button>
+            </form>
+        </div>
+
+        <div class="resume-container">
+            <div id="resume" class="resume">
+                <div class="left-panel">
+                    <!-- Display Image Here -->
+                    <img id="display-pic" src="" alt="Profile Picture" style="width: 100px; height: 100px; border-radius: 50%;">
+
+                    <h2 contenteditable="true" class="editable" id="display-name">Your Name</h2>
+                    <div class="contact">
+                        <h3>Contact</h3>
+                        <p contenteditable="true" id="display-email">email@example.com</p>
+                        <p contenteditable="true" id="display-phone">123-456-7890</p>
+                        <p contenteditable="true" id="display-website">yourwebsite.com</p>
+                    </div>
+                    <div class="skills">
+                        <h3>Skills</h3>
+                        <ul id="display-skills">
+                            <li contenteditable="true" class="editable">Skill 1</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right-panel">
+                    <h3>Education</h3>
+                    <p contenteditable="true" id="display-education">Your Education Here</p>
+                    <h3>Experience</h3>
+                    <p contenteditable="true" id="display-experience">Your Experience Here</p>
+                </div>
+            </div>
+            <button onclick="downloadPDF()">Download PDF</button>
+            <button onclick="generateURL()">Share Link</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
